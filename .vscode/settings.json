@@ -1,3 +1,8 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "files.autoSave": "onWindowChange",
+    "files.exclude": {
+        "**/package-lock.json": true,
+        "node_modules": true
+      },
 }

@@ -1,8 +1,18 @@
-import { sayHello } from "./greet";
+import { List } from "./sharepoint";
+const siteURL = "http://localhost:8081";
 
-function showHello(divName: string, name: string) {
-    const elt = document.getElementById(divName);
-    elt.innerText = sayHello(name);
+function startApp(divName: string) {
+    var elt = $(`#${divName}`);
+
+    var list = new List(siteURL, "Project Tracker");
+
+    list.getItems(function (items: Array<any>) {
+        console.log(items);
+
+        for (var i = 0; i < items.length; i++) {            
+            elt.html(elt.html() + `<p>${items[i].Title}</p>`);
+        }
+    })
 }
 
-showHello("greeting", "TypeScript");
+startApp("app");

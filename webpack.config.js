@@ -18,8 +18,8 @@ module.exports = {
           inject: false,
           template: require('html-webpack-template'),
           title: 'Fancy Webpack Bundle',
-          bodyHtmlSnippet: '<p id="greeting">Loading ...</p>'
-          //template: path.resolve(__dirname, "./src/index.html")          
+          headHtmlSnippet: '<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>',
+          bodyHtmlSnippet: '<div id="app"></div>'          
         })
     ],  
   resolve: {
