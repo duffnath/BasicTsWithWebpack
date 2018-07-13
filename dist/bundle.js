@@ -94,19 +94,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _greet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./greet */ \"./src/greet.ts\");\n\r\nvar siteURL = \"http://localhost:8081\";\r\nfunction startApp(divName) {\r\n    var elt = $(\"#\" + divName);\r\n    var list = new _greet__WEBPACK_IMPORTED_MODULE_0__[\"List\"](siteURL, \"Project Tracker\");\r\n    list.getItems(function (items) {\r\n        console.log(items);\r\n        for (var i = 0; i < items.length; i++) {\r\n            elt.html(elt.html() + (\"<p>\" + items[i].Title + \"</p>\"));\r\n        }\r\n    });\r\n}\r\nstartApp(\"app\");\r\n\n\n//# sourceURL=webpack:///./src/app.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sharepoint__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sharepoint */ \"./src/sharepoint.ts\");\n\r\nvar siteURL = \"http://localhost:8081\";\r\nfunction startApp(divName) {\r\n    var elt = $(\"#\" + divName);\r\n    var list = new _sharepoint__WEBPACK_IMPORTED_MODULE_0__[\"List\"](siteURL, \"Project Tracker\");\r\n    list.getItems(function (items) {\r\n        console.log(items);\r\n        for (var i = 0; i < items.length; i++) {\r\n            elt.html(elt.html() + (\"<p>\" + items[i].Title + \"</p>\"));\r\n        }\r\n    });\r\n}\r\nstartApp(\"app\");\r\n\n\n//# sourceURL=webpack:///./src/app.ts?");
 
 /***/ }),
 
-/***/ "./src/greet.ts":
-/*!**********************!*\
-  !*** ./src/greet.ts ***!
-  \**********************/
+/***/ "./src/sharepoint.ts":
+/*!***************************!*\
+  !*** ./src/sharepoint.ts ***!
+  \***************************/
 /*! exports provided: List */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"List\", function() { return List; });\nvar List = /** @class */ (function () {\r\n    function List(siteURL, listName) {\r\n        this.siteURL = siteURL;\r\n        this.listName = listName;\r\n    }\r\n    List.prototype.getItems = function (callback) {\r\n        $.ajax({\r\n            url: this.siteURL +\r\n                \"/_api/web/lists/getByTitle('\" + this.listName + \"')/items/\",\r\n            type: \"GET\",\r\n            headers: {\r\n                \"accept\": \"application/json;odata=verbose\",\r\n            },\r\n            success: function (data) {\r\n                if (callback !== undefined)\r\n                    callback(data.d.results);\r\n            },\r\n            error: function (err) {\r\n                console.log(JSON.stringify(err));\r\n            }\r\n        });\r\n    };\r\n    return List;\r\n}());\r\n\r\n\n\n//# sourceURL=webpack:///./src/greet.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"List\", function() { return List; });\nvar List = /** @class */ (function () {\r\n    function List(siteURL, listName) {\r\n        this.siteURL = siteURL;\r\n        this.listName = listName;\r\n    }\r\n    List.prototype.getItems = function (callback) {\r\n        $.ajax({\r\n            url: this.siteURL + \"/_api/web/lists/getByTitle('\" + this.listName + \"')/items/\",\r\n            type: \"GET\",\r\n            headers: {\r\n                \"accept\": \"application/json;odata=verbose\",\r\n            },\r\n            success: function (data) {\r\n                if (callback !== undefined)\r\n                    callback(data.d.results);\r\n            },\r\n            error: function (err) {\r\n                console.log(JSON.stringify(err));\r\n            }\r\n        });\r\n    };\r\n    return List;\r\n}());\r\n\r\n\n\n//# sourceURL=webpack:///./src/sharepoint.ts?");
 
 /***/ })
 

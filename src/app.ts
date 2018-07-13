@@ -10,7 +10,7 @@ function startApp(divName: string) {
         console.log(items);
 
         for (var i = 0; i < items.length; i++) {            
-            elt.html(elt.html() + `<p>${items[i].Title}</p>`);
+            elt.html(`${elt.html()}<p>${items[i].Title}</p>`);
         }
     })
 }
